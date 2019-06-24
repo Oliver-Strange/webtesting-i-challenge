@@ -62,6 +62,23 @@ modified according to the rules defined by the client for enhancement success
       // assert
       expect(itemEnhanced).toEqual(expected);
     });
+    it("should not increase past 20", () => {
+      // arrange
+      const testItem = {
+        name: "dagger",
+        durability: 100,
+        enhancement: 20
+      };
+      const expected = {
+        name: "dagger",
+        durability: 100,
+        enhancement: 20
+      };
+      //act
+      const itemMax = succeed(testItem);
+      // assert
+      expect(itemMax).toEqual(expected);
+    });
   });
 
   /*
@@ -74,5 +91,22 @@ modified according to the rules defined by the client for enhancement failure
     (17 goes down to 16, 18 goes down to 17).
 */
 
-  describe("fail()", () => {});
+  //   describe("fail()", () => {});
+  //     it("should decrease dur by 5 if enhance is <15", () => {
+  //         // arrange
+  //         const testItem = {
+  //             name: "dagger",
+  //             durability: 100,
+  //             enhancement: 14
+  //         }
+  //         const expected = {
+  //             name: "dagger",
+  //             durability: 95,
+  //             enhancement: 14
+  //         }
+  //         // act
+  //         const under15Fail = fail(testItem);
+  //         //assert
+  //         expect(under15Fail).toEqual(expected);
+  //     })
 });

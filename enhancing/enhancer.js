@@ -6,12 +6,21 @@ module.exports = {
 };
 
 function succeed(item) {
-  const itemEnhanced = {
-    name: item.name,
-    durability: item.durability,
-    enhancement: item.enhancement + 1
-  };
-  return itemEnhanced;
+  if (item.enhancement === 20) {
+    const itemMax = {
+      name: item.name,
+      durability: item.durability,
+      enhancement: item.enhancement
+    };
+    return itemMax;
+  } else {
+    const itemEnhanced = {
+      name: item.name,
+      durability: item.durability,
+      enhancement: item.enhancement + 1
+    };
+    return itemEnhanced;
+  }
 }
 
 function fail(item) {
