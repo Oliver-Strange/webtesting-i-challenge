@@ -24,7 +24,28 @@ function succeed(item) {
 }
 
 function fail(item) {
-  return { ...item };
+  if (item.enhancement < 15) {
+    const minusFiveDur = {
+      name: item.name,
+      durability: item.durability - 5,
+      enhancement: item.enhancement
+    };
+    return minusFiveDur;
+  } else if (item.enhancement === 15 || 16) {
+    const minusTenDur = {
+      name: item.name,
+      durability: item.durability - 10,
+      enhancement: item.enhancement
+    };
+    return minusTenDur;
+  } else {
+    const minusBoth = {
+      name: item.name,
+      durability: item.durability - 10,
+      enhancement: item.enhancement - 1
+    };
+    return minusBoth;
+  }
 }
 
 function repair(item) {

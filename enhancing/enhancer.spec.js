@@ -91,22 +91,67 @@ modified according to the rules defined by the client for enhancement failure
     (17 goes down to 16, 18 goes down to 17).
 */
 
-  //   describe("fail()", () => {});
-  //     it("should decrease dur by 5 if enhance is <15", () => {
-  //         // arrange
-  //         const testItem = {
-  //             name: "dagger",
-  //             durability: 100,
-  //             enhancement: 14
-  //         }
-  //         const expected = {
-  //             name: "dagger",
-  //             durability: 95,
-  //             enhancement: 14
-  //         }
-  //         // act
-  //         const under15Fail = fail(testItem);
-  //         //assert
-  //         expect(under15Fail).toEqual(expected);
-  //     })
+  describe("fail()", () => {});
+  it("should decrease dur by 5 if enhance is <15", () => {
+    // arrange
+    const testItem = {
+      name: "dagger",
+      durability: 100,
+      enhancement: 14
+    };
+    const expected = {
+      name: "dagger",
+      durability: 95,
+      enhancement: 14
+    };
+    // act
+    const under15Fail = fail(testItem);
+    //assert
+    expect(under15Fail).toEqual(expected);
+  });
+  it("should decrease dur by 10 if enhance = 15 or 16", () => {
+    // arrange
+    const testItem15 = {
+      name: "dagger",
+      durability: 100,
+      enhancement: 15
+    };
+    const expected15 = {
+      name: "dagger",
+      durability: 90,
+      enhancement: 15
+    };
+    // const testItem16 = {
+    //   name: "dagger",
+    //   durability: 100,
+    //   enhancement: 16
+    // };
+    // const expected16 = {
+    //   name: "dagger",
+    //   durability: 90,
+    //   enhancement: 16
+    // };
+    // act
+    const fifteenFail = fail(testItem15);
+    // const sixteenFail = fail(testItem16);
+    // assert
+    expect(fifteenFail).toEqual(expected15);
+    // expect(sixteenFail).toEqual(expected16);
+  });
+  it("should decrease dur and enhance if > 16", () => {
+    const testItem = {
+      name: "dagger",
+      durability: 100,
+      enhancement: 19
+    };
+    const expected = {
+      name: "dagger",
+      durability: 90,
+      enhancement: 18
+    };
+    // act
+    const highFail = fail(testItem);
+    // assert
+    expect(highFail).toEqual(expected);
+  });
 });
