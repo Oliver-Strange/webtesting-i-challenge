@@ -2,7 +2,7 @@ module.exports = {
   succeed,
   fail,
   repair,
-  get,
+  get
 };
 
 function succeed(item) {
@@ -14,7 +14,12 @@ function fail(item) {
 }
 
 function repair(item) {
-  return { ...item };
+  const itemToRepair = {
+    name: item.name,
+    durability: 100,
+    enhancement: item.enhancement
+  };
+  return itemToRepair;
 }
 
 function get(item) {
