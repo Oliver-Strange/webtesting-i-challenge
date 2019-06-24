@@ -44,7 +44,25 @@ modified according to the rules defined by the client for enhancement success
     The durability of the item is not changed.
 */
 
-  describe("succeed()", () => {});
+  describe("succeed()", () => {
+    it("should enhance item by 1", () => {
+      // arrange
+      const testItem = {
+        name: "dagger",
+        durability: 100,
+        enhancement: 0
+      };
+      const expected = {
+        name: "dagger",
+        durability: 100,
+        enhancement: 1
+      };
+      // act
+      const itemEnhanced = succeed(testItem);
+      // assert
+      expect(itemEnhanced).toEqual(expected);
+    });
+  });
 
   /*
 a fail(item) method that accepts an item object and returns a new item object 

@@ -6,7 +6,12 @@ module.exports = {
 };
 
 function succeed(item) {
-  return { ...item };
+  const itemEnhanced = {
+    name: item.name,
+    durability: item.durability,
+    enhancement: item.enhancement + 1
+  };
+  return itemEnhanced;
 }
 
 function fail(item) {
