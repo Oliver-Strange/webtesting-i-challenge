@@ -109,6 +109,7 @@ modified according to the rules defined by the client for enhancement failure
     //assert
     expect(under15Fail).toEqual(expected);
   });
+
   it("should decrease dur by 10 if enhance = 15 or 16", () => {
     // arrange
     const testItem15 = {
@@ -121,24 +122,26 @@ modified according to the rules defined by the client for enhancement failure
       durability: 90,
       enhancement: 15
     };
-    // const testItem16 = {
-    //   name: "dagger",
-    //   durability: 100,
-    //   enhancement: 16
-    // };
-    // const expected16 = {
-    //   name: "dagger",
-    //   durability: 90,
-    //   enhancement: 16
-    // };
+    const testItem16 = {
+      name: "dagger",
+      durability: 100,
+      enhancement: 16
+    };
+    const expected16 = {
+      name: "dagger",
+      durability: 90,
+      enhancement: 16
+    };
     // act
     const fifteenFail = fail(testItem15);
-    // const sixteenFail = fail(testItem16);
+    const sixteenFail = fail(testItem16);
     // assert
     expect(fifteenFail).toEqual(expected15);
-    // expect(sixteenFail).toEqual(expected16);
+    expect(sixteenFail).toEqual(expected16);
   });
+
   it("should decrease dur and enhance if > 16", () => {
+    // arrange
     const testItem = {
       name: "dagger",
       durability: 100,

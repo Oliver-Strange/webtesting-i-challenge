@@ -31,14 +31,14 @@ function fail(item) {
       enhancement: item.enhancement
     };
     return minusFiveDur;
-  } else if (item.enhancement === 15 || 16) {
+  } else if (item.enhancement === 15 || item.enhancement === 16) {
     const minusTenDur = {
       name: item.name,
       durability: item.durability - 10,
       enhancement: item.enhancement
     };
     return minusTenDur;
-  } else {
+  } else if (item.enhancement > 16) {
     const minusBoth = {
       name: item.name,
       durability: item.durability - 10,
